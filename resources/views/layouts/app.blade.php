@@ -25,10 +25,33 @@
         ::placeholder {
             color: rgba(37, 67, 140, 0.7);
         }
+
+        a {
+            color: rgba(34, 22, 57, 0.8);
+        }
+
+        a:hover {
+            color: #800909;
+        }
+
+        button.login {
+            color: #FFF;
+            background-color: #1E4178;
+            border: 2px solid #1E4178;
+            border-radius: 4px;
+            padding: 10px 40px 10px;
+            font-family: 'Poppins', sans-serif;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        button.login:hover {
+            color: #1E4178;
+            background-color: #FFF;
+        }
     </style>
 </head>
 <body>
-    <div id="app">
         <!-- <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
@@ -83,9 +106,7 @@
             <!-- </div>
         </nav> -->
 
-        <main>
+
             @yield('content')
-        </main>
-    </div>
 </body>
 </html>

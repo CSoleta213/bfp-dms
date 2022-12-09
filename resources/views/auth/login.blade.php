@@ -3,7 +3,7 @@
 @section('content')
 <div style="display: flex; height: 100vh; flex-direction: column; justify-content: center; align-items: center; background-image: url('img/login-page-bg.png');">
   <div style="flex: 1;"></div>
-  <div style="display: flex; flex: 4; flex-direction: column; align-items: center; background-color: rgba(255, 255, 255, 0.95); width: 40%; border-radius: 15px; padding: 2%;">
+  <div style="display: flex; flex: 3; flex-direction: column; align-items: center; background-color: rgba(255, 255, 255, 0.95); width: 40%; border-radius: 15px; padding: 2%;">
     <div>
       <img src="{{ url('img/bfp-apalit-logo.png') }}" alt="BFP Apalit Logo" width="200px">
     </div>
@@ -27,22 +27,25 @@
       @error('password')
         <strong>{{ $message }}</strong>
       @enderror
-
+      
+      @if (Route::has('password.request'))
+        <a href="{{ route('password.request') }}" style="display: flex; justify-content: flex-end; text-decoration: none;">
+          {{ __('Forgot Your Password?') }}
+        </a>
+      @endif
       <br>
 
       <center>
-        <button type="submit" style="background-color: #221639; color: #FFF; border: none; border-radius: 4px; padding: 10px 40px 10px; font-family: 'Poppins', sans-serif; font-weight: bold;">
+        <button class="login" type="submit">
           {{ __('Login') }}
         </button>
+        <!-- <button class="signup" type="submit" style="border: 2px solid #1E4178; border-radius: 4px; padding: 10px 40px 10px; font-family: 'Poppins', sans-serif; font-weight: bold;">
+          {{ __('Sign Up') }}
+        </button> -->
       </center>
-
-      <!-- @if (Route::has('password.request'))
-        <a class="btn btn-link" href="{{ route('password.request') }}">
-          {{ __('Forgot Your Password?') }}
-        </a>
-      @endif -->
+      
     </form>
-    <p>Don’t have an account? <a href="{{ route('register') }}">Sign Up</a></p>
+    <!-- <p>Don’t have an account? <a href="{{ route('register') }}">Sign Up</a></p> -->
   </div>
   <div style="flex: 1;"></div>
 </div>  
