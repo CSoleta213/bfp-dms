@@ -1,0 +1,149 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: #FFF;
+  display: flex;
+  align-items: center;
+}
+
+a:hover {
+  display: flex;
+  color: rgba(196, 196, 196, 0.23);
+}
+
+label {
+  font-weight: 600;
+}
+
+button[type=submit] {
+  font-weight: 800;
+  color: #FFF;
+  border: none;
+  border-radius: 8px;
+  background-color: #800909;
+  padding: 10px 30px;
+  width: 150px;
+  cursor: pointer;
+}
+
+.main-container {
+  display: flex;
+  flex: 1;
+  height: 100vh;
+}
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  width: 250px;
+  background-color: #B22222;
+  color: #FFF;
+}
+
+.sidebar-heading {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin: 20px 0 20px;
+}
+
+.sidebar-links-container {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+}
+
+.sidebar-links {
+  margin-bottom: 20px;
+}
+
+/* MODAL */
+  /* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  border-radius: 10px;
+  width: 50%;
+}
+
+.modal-content h1 {
+  text-align: center;
+}
+
+.modal-body .form-item {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  border-top: 1px solid rgba(0, 0, 0, 0.2);
+  padding: 5px 10px;
+}
+
+.modal-body .form-item input {
+  flex: 1;
+  border: none;
+  margin-left: 10px;
+  font-family: 'Poppins', sans-serif;
+  letter-spacing: 2px;
+  padding: 10px;
+}
+
+.modal-body .button {
+  display: flex;
+  justify-content: center;
+  /* align-items: center; */
+  padding: 10px;
+  /* border-bottom: 1px solid #000; */
+}
+
+.modal-body button.white {
+  border: solid 1px #800909;
+  font-weight: 800;
+  color: #800909;
+  border-radius: 8px;
+  background-color: #FFF;
+  padding: 10px 30px;
+  margin: 0 5px;
+  width: 150px;
+  cursor: pointer;
+}
+
+/* The Close Button */
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+  /* END OF MODAL */

@@ -25,4 +25,19 @@ class HomeController extends Controller
     {
         return view('home');
     }
+
+    public function establishments()
+    {
+        return view('establishments');
+    }
+
+    public function forRenewal()
+    {
+        return view('for-renewal');
+    }
+
+    public function newApplicant()
+    {
+        return view('new-applicant');
+    }
 }
