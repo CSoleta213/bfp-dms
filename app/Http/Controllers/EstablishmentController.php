@@ -41,6 +41,7 @@ class EstablishmentController extends Controller
         $request->validate([
             'bin_ban_no' => 'required',
             'establishment_name' => 'required',
+            'establishment_representative' => 'required',
             'address' => 'required',
             'contact_no' => 'required',
             'expiration_date' => 'required',
@@ -86,6 +87,7 @@ class EstablishmentController extends Controller
         $request->validate([
             'bin_ban_no' => 'required',
             'establishment_name' => 'required',
+            'establishment_representative' => 'required',
             'address' => 'required',
             'contact_no' => 'required',
             'expiration_date' => 'required',
