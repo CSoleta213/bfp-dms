@@ -41,7 +41,7 @@ button[type=submit] {
 .sidebar {
   display: flex;
   flex-direction: column;
-  width: 250px;
+  width: 300px;
   background-color: #B22222;
   color: #FFF;
 }

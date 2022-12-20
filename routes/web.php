@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\EstablishmentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,6 +27,8 @@ Route::prefix('admin')->middleware(['auth', 'isAdmin'])->group(function() {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('/establishments', [App\Http\Controllers\HomeController::class, 'establishments'])->name('establishments');
+// Route::get('/establishments', [App\Http\Controllers\HomeController::class, 'establishments'])->name('establishments');
 Route::get('/for-renewal', [App\Http\Controllers\HomeController::class, 'forRenewal'])->name('forRenewal');
 Route::get('/new-applicant', [App\Http\Controllers\HomeController::class, 'newApplicant'])->name('newApplicant');
+
+Route::resource('establishments', EstablishmentController::class);

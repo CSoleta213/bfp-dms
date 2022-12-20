@@ -11,7 +11,7 @@
       </div>
       <div class="sidebar-links-container">
         <div class="sidebar-links">
-          <a href="/home">
+          <a class="active" href="/home">
             <span style="padding-left: 30px;"><i class='bx bx-home'></i></span>
             <span style="font-weight: bold; margin-left: 20px;">Dashboard</span>
           </a>
@@ -35,19 +35,19 @@
           </a>
         </div>
       </div>
-      <div style="display: flex; height: 50px; align-items: center; justify-content: space-around; padding: 10px 0 10px;">
-        <div style="display: flex; flex: 4; align-items: center; justify-content: center;">
+      <div style="display: flex; height: 50px; align-items: center; justify-content: space-around; padding: 10px 0 10px; align-content: center; margin: 10px;">
+        <div style="display: flex; flex: 1.5; align-items: center; justify-content: center;">
           <a href="">
             <img src="{{ url('img/bfp-clerk-profile.png') }}" alt="profileImg" style="width: 36px; padding-right: 10px;">
             <div class="name">{{ Auth::user()->name }}</div>
           </a>
         </div>
         <div style="display: flex; flex: 1; align-items: center; justify-content: space-around;">
-          <a class="dropdown-item" href="{{ route('logout') }}"
+          <a href="{{ route('logout') }}"
             onclick="event.preventDefault();
             document.getElementById('logout-form').submit();">
-            <i class='bx bx-log-out' id="log_out"></i>
-            <!-- <span>Logout</span> -->
+            <i class='bx bx-log-out' id="log_out" style="font-size: 24px;"></i>
+            <span style="margin-left: 5px;">Logout</span>
           </a>
           <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
             @csrf
@@ -116,28 +116,32 @@
     <div class="modal-content">
       <span class="close">&times;</span>
       <h1>ADD NEW ESTABLISHMENT</h1>
-      <form action="">
+      <form action="{{ route('establishments.store') }}" method="POST">
         @csrf
         <div class="modal-body">
           <div class="form-item">
             <label for="">Bin Ban No.:</label>
-            <input type="text" placeholder="Type here..."><br><br>
+            <input type="text" name="bin_ban_no" placeholder="Type here..."><br><br>
           </div>
           <div class="form-item">
             <label for="">Name of Establishment:</label>
-            <input type="text" placeholder="Type here..."><br><br>
+            <input type="text" name="establishment_name" placeholder="Type here..."><br><br>
+          </div>
+          <div class="form-item">
+            <label for="">Establishment's Representative:</label>
+            <input type="text" name="establishment_representative" placeholder="Type here..."><br><br>
           </div>
           <div class="form-item">
             <label for="">Address:</label>
-            <input type="text" placeholder="Type here..."><br><br>
+            <input type="text" name="address" placeholder="Type here..."><br><br>
           </div>
           <div class="form-item">
             <label for="">Contact #:</label>
-            <input type="tel" name="" id="" placeholder="Format: 09123456789" pattern="[0-9]{11}"><br><br>
+            <input type="tel" name="contact_no" placeholder="Format: 09123456789" pattern="[0-9]{11}"><br><br>
           </div>
           <div class="form-item">
             <label for="">Expiration Date:</label>
-            <input type="date" name="" id="" placeholder="Type here..."><br><br>
+            <input type="date" name="expiration_date" placeholder="Type here..."><br><br>
           </div>
           <div class="form-item button">
             <button class="white">Back</button>
