@@ -44,7 +44,6 @@ class EstablishmentController extends Controller
             'establishment_representative' => 'required',
             'address' => 'required',
             'contact_no' => 'required',
-            'expiration_date' => 'required',
         ]);
     
         Establishment::create($request->all());
@@ -90,7 +89,6 @@ class EstablishmentController extends Controller
             'establishment_representative' => 'required',
             'address' => 'required',
             'contact_no' => 'required',
-            'expiration_date' => 'required',
         ]);
     
         $establishment->update($request->all());

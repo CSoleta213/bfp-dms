@@ -15,12 +15,11 @@ return new class extends Migration
     {
         Schema::create('establishments', function (Blueprint $table) {
             $table->id();
-            $table->integer('bin_ban_no')->unique();
+            $table->string('bin_ban_no')->unique();
             $table->string('establishment_name');
             $table->string('establishment_representative');
             $table->string('address');
             $table->string('contact_no');
-            $table->date('expiration_date');
             $table->timestamps();
         });
     }

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Establishment;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -38,6 +39,9 @@ class HomeController extends Controller
 
     public function newApplicant()
     {
-        return view('new-applicant');
+        $establishments = Establishment::latest()->paginate(5);
+    
+        return view('new-applicants',compact('establishments'))
+            ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 }

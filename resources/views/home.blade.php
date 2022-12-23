@@ -1,60 +1,6 @@
 @extends('layouts.sidebar')
 
 @section('content')
-  <div class="main-container">
-    <div class="sidebar">
-      <div class="sidebar-heading">
-        <a href="/">
-          <img src="{{ url('img/bfp-apalit-logo.png') }}" alt="BFP Apalit Logo" width="150px">
-        </a>
-        <h3>Bureau of<br>Fire Protection</h3>
-      </div>
-      <div class="sidebar-links-container">
-        <div class="sidebar-links">
-          <a class="active" href="/home">
-            <span style="padding-left: 30px;"><i class='bx bx-home'></i></span>
-            <span style="font-weight: bold; margin-left: 20px;">Dashboard</span>
-          </a>
-        </div>
-        <div class="sidebar-links">
-          <a href="/establishments">
-            <span style="padding-left: 30px;"><i class='bx bx-buildings'></i></span>
-            <span style="font-weight: bold; margin-left: 20px;">Establishments</span>
-          </a>
-        </div>
-        <div class="sidebar-links">
-          <a href="/for-renewal">
-            <span style="padding-left: 30px;"><i class='bx bx-buildings'></i></span>
-            <span style="font-weight: bold; margin-left: 20px;">For Renewal</span>
-          </a>
-        </div>
-        <div class="sidebar-links">
-          <a href="/new-applicant">
-            <span style="padding-left: 30px;"><i class='bx bx-buildings'></i></span>
-            <span style="font-weight: bold; margin-left: 20px;">New Applicant</span>
-          </a>
-        </div>
-      </div>
-      <div style="display: flex; height: 50px; align-items: center; justify-content: space-around; padding: 10px 0 10px; align-content: center; margin: 10px;">
-        <div style="display: flex; flex: 1.5; align-items: center; justify-content: center;">
-          <a href="">
-            <img src="{{ url('img/bfp-clerk-profile.png') }}" alt="profileImg" style="width: 36px; padding-right: 10px;">
-            <div class="name">{{ Auth::user()->name }}</div>
-          </a>
-        </div>
-        <div style="display: flex; flex: 1; align-items: center; justify-content: space-around;">
-          <a href="{{ route('logout') }}"
-            onclick="event.preventDefault();
-            document.getElementById('logout-form').submit();">
-            <i class='bx bx-log-out' id="log_out" style="font-size: 24px;"></i>
-            <span style="margin-left: 5px;">Logout</span>
-          </a>
-          <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-            @csrf
-          </form>
-        </div>
-      </div>
-    </div>
     <div style="display: flex; flex-direction: column; flex: 1; background-color: #FFF">
       <div
         style="
@@ -107,7 +53,6 @@
         </div>
       </div>
     </div>
-  </div>
 
   <!-- The Add New Establishment Form Modal -->
   <div id="addNewEstablishmentFormModal" class="modal">
@@ -139,13 +84,9 @@
             <label for="">Contact #:</label>
             <input type="tel" name="contact_no" placeholder="Format: 09123456789" pattern="[0-9]{11}"><br><br>
           </div>
-          <div class="form-item">
-            <label for="">Expiration Date:</label>
-            <input type="date" name="expiration_date" placeholder="Type here..."><br><br>
-          </div>
           <div class="form-item button">
-            <button class="white">Back</button>
-            <button type="submit">Confirm</button>
+            <button class="button-orange margin-lr">BACK</button>
+            <button type="submit" class="button-submit">CONFIRM</button>
           </div>
         </div>
       </form>
