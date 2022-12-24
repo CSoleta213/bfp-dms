@@ -1,58 +1,103 @@
 @extends('layouts.sidebar')
 
 @section('content')
-    <div style="display: flex; flex-direction: column; flex: 1; background-color: #FFF">
-      <div
-        style="
-          display: flex;
-          flex: 1.4;
-          background-image: url('img/header-image.png');
-          background-repeat: no-repeat;
-          background-size: cover;
-        "
-      >
-        <div
-          style="
-            display: flex;
-            flex: 1;
-            flex-direction: column;
-            justify-content: center;
-            background-color: rgba(0, 0, 0, 0.6);
-            color: #FFF;
-            padding-left: 100px;
-          "
-        >
-          <h1 style="margin: 0; letter-spacing: 2px;">WELCOME!</h1>
-          <h5 style="margin: 0; letter-spacing: 5px;">BFP Region 3 | APALIT FIRE STATION</h5>
-        </div>
+  <div style="display: flex; flex: 1; flex-direction: column; margin-left: 275px;">
+    <div class="content-header" style="width: 100%; background-image: url('img/header-image.png'); background-size: cover; color: #FFF;">
+      <div style="background-color: rgba(0, 0, 0, 0.6); padding: 50px;">
+        <h1 style="margin: 0; letter-spacing: 3px; text-transform: uppercase;">WELCOME, {{ Auth::user()->name }}!</h1>
+        <h5 style="margin: 0; letter-spacing: 3px;">BFP Region 3 | APALIT FIRE STATION</h5>
       </div>
-      <div style="display: flex; flex-direction: column; flex: 3; justify-content: center; margin: 0 50px 50px;">
-        <div style="display: flex; flex: 1; align-self: center; align-items: center; margin: 5px; width: 70%;">
-          <div style="display: flex; flex: 1"><h1>DASHBOARD</h1></div>
-          <!-- Trigger/Open The Modal -->
-          <div id="addNewEstablishmentBtn" style=" flex: 1; display: flex; flex-direction: column; align-content: center;"><button style="align-self: flex-end; background-color: #B22222; color: #FFF; width: 210px; border: none; border-radius: 10px; padding: 10px; font-family: 'Poppins', sans-serif; cursor: pointer;"><i class='bx bxs-plus-square' style="padding-right: 5px;"></i>Add New Establishments</button></div>
-        </div>
-        <hr style="display: flex; width: 70%; border: 1px solid rgba(0, 0, 0, 0.7);">
-        <div style="display: flex; flex: 1; align-self: center; align-items: center; margin: 5px; width: 70%; background-color: #800909; color: #FFF; border-radius: 10px; padding-left: 25px;">
-          <h3 style="flex: 1">Total No. of Establishments</h3>
-          <div style="display: flex; justify-content: center; align-items: center; text-align: center; background-image: url('img/establishment-icon.png'); background-size: 50% 100%; background-repeat: no-repeat; margin: 0 25px;">
-            <h1 style="margin: 0px 50px;">0</h1>
+    </div>
+    <div class="content-body" style="padding: 50px;">
+      <div style="display: flex; align-items: center;">
+        <img src="{{ url('img/home-icon-black.png') }}" alt="" width="35px" height="35px">
+        <h1 style="margin: 0;">DASHBOARD</h1>
+        <!-- Trigger/Open The Modal -->
+        <div id="addNewEstablishmentBtn" style="display: flex; flex: 1; justify-content: flex-end;"><button class="button-red" style="display: flex; align-items: center;"><img src="{{ url('img/plus-icon.png') }}" style="margin-right: 5px;">ADD NEW ESTABLISHMENTS</button></div>
+      </div>
+      <hr>
+      <div style="display: flex; justify-content: flex-end; margin: 10px;">
+        <label for="">Year:</label>
+        <input type="text" style="margin-left: 10px; border: solid 2px rgba(0, 0, 0, 0.3); font-family: poppins;">
+      </div>
+      <div style="display: flex; flex: 1; flex-direction: column;">
+        <div class="stats" style="display: flex; flex-direction: column; flex-wrap: wrap; padding: 10px;">
+        <div style="display: flex; flex: 1">
+          <div class="box-stats" style="display: flex; flex-direction: column; align-items: center; flex: 1; height: 75px; color: #FFF; background-image: url('img/total-estab-bg.png'); background-size: 100% 100%; border-radius: 10px; padding: 5px; margin: 5px;">
+            <h1 style="margin: 0;">0</h1>
+            <h4 style="margin: 0;">Total Establishments</h4>
+          </div>
+          <div class="box-stats" style="display: flex; flex-direction: column; align-items: center; flex: 1; height: 75px; color: #FFF; background-image: url('img/approved-bg.png'); background-size: 100% 100%; border-radius: 10px; padding: 5px; margin: 5px;">
+            <h1 style="margin: 0;">0</h1>
+            <h4 style="margin: 0;">Approved FSIC</h4>
+          </div>
+          <div class="box-stats" style="display: flex; flex-direction: column; align-items: center; flex: 1; height: 75px; color: #FFF; background-image: url('img/for-approval-bg.png'); background-size: 100% 100%; border-radius: 10px; padding: 5px; margin: 5px;">
+            <h1 style="margin: 0;">0</h1>
+            <h4 style="margin: 0;">For Approval of FSIC</h4>
+          </div>
+          <div class="box-stats" style="display: flex; flex-direction: column; align-items: center; flex: 1; height: 75px; color: #FFF; background-image: url('img/new-bg.png'); background-size: 100% 100%; border-radius: 10px; padding: 5px; margin: 5px;">
+            <h1 style="margin: 0;">0</h1>
+            <h4 style="margin: 0;">New Establishments</h4>
+          </div>
+          </div>
+          <div style="display: flex; flex: 1">
+          <div class="box-stats" style="display: flex; flex-direction: column; align-items: center; flex: 1; height: 75px; color: #FFF; background-image: url('img/renewed-bg.png'); background-size: 100% 100%; border-radius: 10px; padding: 5px; margin: 5px;">
+            <h1 style="margin: 0;">0</h1>
+            <h4 style="margin: 0;">Renewed FSIC</h4>
+          </div>
+          <div class="box-stats" style="display: flex; flex-direction: column; align-items: center; flex: 1; height: 75px; color: #FFF; background-image: url('img/for-renewal-bg.png'); background-size: 100% 100%; border-radius: 10px; padding: 5px; margin: 5px;">
+            <h1 style="margin: 0;">0</h1>
+            <h4 style="margin: 0;">For Renewal of FSIC</h4>
+          </div>
+          <div class="box-stats" style="display: flex; flex-direction: column; align-items: center; flex: 1; height: 75px; color: #FFF; background-image: url('img/pending-bg.png'); background-size: 100% 100%; border-radius: 10px; padding: 5px; margin: 5px;">
+            <h1 style="margin: 0;">0</h1>
+            <h4 style="margin: 0;">Incomplete Requirements</h4>
+          </div>
+          <div class="box-stats" style="display: flex; flex-direction: column; align-items: center; flex: 1; height: 75px; color: #FFF; background-image: url('img/closed-bg.png'); background-size: 100% 100%; border-radius: 10px; padding: 5px; margin: 5px;">
+            <h1 style="margin: 0;">0</h1>
+            <h4 style="margin: 0;">Closed Establishments</h4>
+          </div>
           </div>
         </div>
-        <div style="display: flex; align-self: center; align-items: center; flex: 1; margin: 5px; width: 70%; background-color: #F27D0C; color: #FFF; border-radius: 10px; padding-left: 25px;">
-          <h3 style="flex: 1">No. of Establishments for Renewal of FSIC</h3>
-          <div style="display: flex; justify-content: center; align-items: center; text-align: center; background-image: url('img/renewal-icon.png'); background-size: 50% 100%; background-repeat: no-repeat; margin: 0 25px;">
-            <h1 style="margin: 0px 50px;">0</h1>
-          </div>
+        <div style="display: flex;">
+        <div style="display: flex; flex: 1; flex-direction: column; margin: 5px;">
+        <h3 style="text-align: center;">Top 10 Newest Applied Establishment</h3>
+          <table>
+            <tr style="background-color: #800909; color: #FFF;">
+              <th>No</th>
+              <th>Bin Ban No.</th>
+              <th>Name of Establishment</th>
+            </tr>
+            @foreach ($establishments as $establishment)
+            <tr>
+              <td>{{ ++$i }}</td>
+              <td>{{ $establishment->bin_ban_no }}</td>
+              <td class="except">{{ $establishment->establishment_name }}</td>
+            </tr>
+            @endforeach
+          </table>
         </div>
-        <div style="display: flex; align-self: center; align-items: center; flex: 1; margin: 5px; width: 70%; background-color: #E4B53B; color: #FFF; border-radius: 10px; padding-left: 25px;">
-          <h3 style="flex: 1">No. of New Applied Establishments</h3>
-          <div style="display: flex; justify-content: center; align-items: center; text-align: center; background-image: url('img/new-icon.png'); background-size: 50% 100%; background-repeat: no-repeat; margin: 0 25px;">
-            <h1 style="margin: 0px 50px;">0</h1>
-          </div>
+        <div style="display: flex; flex: 1; flex-direction: column; margin: 5px;">
+        <h3 style="text-align: center;">Top 10 Establishments Nearest to Expire FSIC</h3>
+          <table>
+          <tr style="background-color: #800909; color: #FFF;">
+              <th>No</th>
+              <th>Bin Ban No.</th>
+              <th>Name of Establishment</th>
+            </tr>
+            @foreach ($establishments as $establishment)
+            <tr>
+              <td>{{ ++$i }}</td>
+              <td>{{ $establishment->bin_ban_no }}</td>
+              <td class="except">{{ $establishment->establishment_name }}</td>
+            </tr>
+            @endforeach
+          </table>
+        </div>
         </div>
       </div>
     </div>
+  </div>
 
   <!-- The Add New Establishment Form Modal -->
   <div id="addNewEstablishmentFormModal" class="modal">

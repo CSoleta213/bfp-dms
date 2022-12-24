@@ -24,7 +24,10 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $establishments = Establishment::latest()->paginate(5);
+    
+        return view('home',compact('establishments'))
+            ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
     public function establishments()

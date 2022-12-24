@@ -22,7 +22,7 @@
         <div class="sidebar-links-container">
           <div class="sidebar-links">
             <a href="/home">
-              <span style="padding-left: 30px;"><img class="sidebar-icon" src="{{ url('img/home-button.png') }}" alt="Establishments Button"></span>
+              <span style="padding-left: 30px;"><img class="sidebar-icon" src="{{ url('img/home-icon-white.png') }}" alt="Establishments Button"></span>
               <span style="font-weight: bold; margin-left: 20px;">Dashboard</span>
             </a>
           </div>
@@ -51,24 +51,16 @@
             </a>
           </div>
         </div>
-        <div style="display: flex; height: 50px; align-items: center; justify-content: space-around; padding: 10px 0 10px; align-content: center; margin: 10px;">
-          <div style="display: flex; flex: 1.5; align-items: center; justify-content: center;">
-            <a href="">
-              <img src="{{ url('img/bfp-clerk-profile.png') }}" alt="profileImg" style="width: 36px; padding-right: 10px;">
-              <div class="name">{{ Auth::user()->name }}</div>
-            </a>
-          </div>
-          <div style="display: flex; flex: 1; align-items: center; justify-content: space-around;">
-            <a href="{{ route('logout') }}"
-              onclick="event.preventDefault();
-              document.getElementById('logout-form').submit();">
-              <i class='bx bx-log-out' id="log_out" style="font-size: 24px;"></i>
-              <span style="margin-left: 5px;">Logout</span>
-            </a>
-            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-              @csrf
-            </form>
-          </div>
+        <div class="sidebar-links">
+          <a href="{{ route('logout') }}"
+            onclick="event.preventDefault();
+            document.getElementById('logout-form').submit();">
+            <span style="padding-left: 30px;"><img class="sidebar-icon" src="{{ url('img/logout-icon.png') }}" alt="Establishments Button"></span>
+            <span style="font-weight: bold; margin-left: 20px;">Logout</span>
+          </a>
+          <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+            @csrf
+          </form>
         </div>
       </div>
       @yield('content')

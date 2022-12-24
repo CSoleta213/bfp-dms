@@ -1,7 +1,7 @@
 @extends('layouts.sidebar')
  
 @section('content')
-    <div style="display: flex; flex-direction: column; flex: 1; background-color: #FFF">
+    <div style="display: flex; flex-direction: column; flex: 1; background-color: #FFF; margin-left: 275px;">
       <div
         style="
           display: flex;
