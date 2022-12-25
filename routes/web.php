@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EstablishmentController;
+use App\Http\Controllers\NewApplicantController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,6 +30,7 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 // Route::get('/establishments', [App\Http\Controllers\HomeController::class, 'establishments'])->name('establishments');
 Route::get('/for-renewal', [App\Http\Controllers\HomeController::class, 'forRenewal'])->name('forRenewal');
-Route::get('/new-applicants', [App\Http\Controllers\HomeController::class, 'newApplicant'])->name('newApplicant');
+// Route::get('/new-applicants', [App\Http\Controllers\HomeController::class, 'newApplicant'])->name('newApplicant');
 
 Route::resource('establishments', EstablishmentController::class);
+Route::resource('new-applicants', NewApplicantController::class);

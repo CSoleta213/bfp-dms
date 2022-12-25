@@ -1,22 +1,20 @@
 @extends('layouts.sidebar')
 
 @section('content')
-  <div style="display: flex; flex: 1; flex-direction: column; margin-left: 275px;">
-    <div class="content-header" style="width: 100%; background-image: url('img/header-image.png'); background-size: cover; color: #FFF;">
-      <div style="background-color: rgba(0, 0, 0, 0.6); padding: 50px;">
-        <h1 style="margin: 0; letter-spacing: 3px; text-transform: uppercase;">WELCOME, {{ Auth::user()->name }}!</h1>
-        <h5 style="margin: 0; letter-spacing: 3px;">BFP Region 3 | APALIT FIRE STATION</h5>
+  <div class="content-container">
+    <div class="content-header">
+      <div class="content-header-black" style="flex-direction: column; align-items: start;">
+        <h1>WELCOME, {{ Auth::user()->name }}!</h1>
+        <h5>BFP Region 3 | APALIT FIRE STATION</h5>
       </div>
     </div>
-    <div class="content-body" style="padding: 50px;">
-      <div style="display: flex; align-items: center;">
-        <img src="{{ url('img/home-icon-black.png') }}" alt="" width="35px" height="35px">
+    <div class="content-body">
+      <div style="display: flex; align-items: center; padding-bottom: 15px; border-bottom: 2px solid rgba(0, 0, 0, 0.2)">
+        <img src="{{ url('img/home-icon-black.png') }}" alt="" width="35px" height="35px" style="margin-right: 20px;">
         <h1 style="margin: 0;">DASHBOARD</h1>
-        <!-- Trigger/Open The Modal -->
-        <div id="addNewEstablishmentBtn" style="display: flex; flex: 1; justify-content: flex-end;"><button class="button-red" style="display: flex; align-items: center;"><img src="{{ url('img/plus-icon.png') }}" style="margin-right: 5px;">ADD NEW ESTABLISHMENTS</button></div>
+        <div style="display: flex; flex: 1; justify-content: flex-end;"> <a href="{{ url('/new-applicants') }}" class="button button-red" style="display: flex; align-items: center;"><img src="{{ url('img/plus-icon.png') }}" style="margin-right: 10px;">ADD NEW APPLICANT</a></div>
       </div>
-      <hr>
-      <div style="display: flex; justify-content: flex-end; margin: 10px;">
+      <div style="display: flex; justify-content: flex-end; margin: 5px;">
         <label for="">Year:</label>
         <input type="text" style="margin-left: 10px; border: solid 2px rgba(0, 0, 0, 0.3); font-family: poppins;">
       </div>
@@ -24,7 +22,7 @@
         <div class="stats" style="display: flex; flex-direction: column; flex-wrap: wrap; padding: 10px;">
         <div style="display: flex; flex: 1">
           <div class="box-stats" style="display: flex; flex-direction: column; align-items: center; flex: 1; height: 75px; color: #FFF; background-image: url('img/total-estab-bg.png'); background-size: 100% 100%; border-radius: 10px; padding: 5px; margin: 5px;">
-            <h1 style="margin: 0;">0</h1>
+            <h1 style="margin: 0;">{{ $number_of_estab }}</h1>
             <h4 style="margin: 0;">Total Establishments</h4>
           </div>
           <div class="box-stats" style="display: flex; flex-direction: column; align-items: center; flex: 1; height: 75px; color: #FFF; background-image: url('img/approved-bg.png'); background-size: 100% 100%; border-radius: 10px; padding: 5px; margin: 5px;">
@@ -98,70 +96,4 @@
       </div>
     </div>
   </div>
-
-  <!-- The Add New Establishment Form Modal -->
-  <div id="addNewEstablishmentFormModal" class="modal">
-
-    <!-- Modal content -->
-    <div class="modal-content">
-      <span class="close">&times;</span>
-      <h1>ADD NEW ESTABLISHMENT</h1>
-      <form action="{{ route('establishments.store') }}" method="POST">
-        @csrf
-        <div class="modal-body">
-          <div class="form-item">
-            <label for="">Bin Ban No.:</label>
-            <input type="text" name="bin_ban_no" placeholder="Type here..."><br><br>
-          </div>
-          <div class="form-item">
-            <label for="">Name of Establishment:</label>
-            <input type="text" name="establishment_name" placeholder="Type here..."><br><br>
-          </div>
-          <div class="form-item">
-            <label for="">Establishment's Representative:</label>
-            <input type="text" name="establishment_representative" placeholder="Type here..."><br><br>
-          </div>
-          <div class="form-item">
-            <label for="">Address:</label>
-            <input type="text" name="address" placeholder="Type here..."><br><br>
-          </div>
-          <div class="form-item">
-            <label for="">Contact #:</label>
-            <input type="tel" name="contact_no" placeholder="Format: 09123456789" pattern="[0-9]{11}"><br><br>
-          </div>
-          <div class="form-item button">
-            <button class="button-orange margin-lr">BACK</button>
-            <button type="submit" class="button-submit">CONFIRM</button>
-          </div>
-        </div>
-      </form>
-    </div>
-  </div>
-  <script>
-// Get the modal
-var modal = document.getElementById("addNewEstablishmentFormModal");
-
-// Get the button that opens the modal
-var btn = document.getElementById("addNewEstablishmentBtn");
-
-// Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close")[0];
-
-// When the user clicks the button, open the modal 
-btn.onclick = function() {
-  modal.style.display = "block";
-}
-
-// When the user clicks on <span> (x), close the modal
-span.onclick = function() {
-  modal.style.display = "none";
-}
-
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-  if (event.target == modal) {
-    modal.style.display = "none";
-  }
-}
-</script>
 @endsection

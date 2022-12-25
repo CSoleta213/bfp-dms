@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Establishment;
 use Illuminate\Http\Request;
+use App\Models\Establishment;
+use DB;
 
 class HomeController extends Controller
 {
@@ -25,8 +26,9 @@ class HomeController extends Controller
     public function index()
     {
         $establishments = Establishment::latest()->paginate(5);
+        $number_of_estab = DB::table('establishments')->count();
     
-        return view('home',compact('establishments'))
+        return view('home',compact('establishments', 'number_of_estab'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
